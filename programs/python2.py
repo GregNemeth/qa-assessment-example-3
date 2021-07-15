@@ -11,8 +11,12 @@
 # one(['tic', 'tac', 'toe']) → {'tic':1, 'tac':1, 'toe':1}
     
 def one(items):
-    pass
+    set1 = set(items)
+    list_of_numbers = [items.count(x) for x in items]
+    zipobj = zip(set1, list_of_numbers)
+    dict1 = dict(zipobj)
 
+    return dict1
 # <QUESTION 2>
 
 # Given two numbers, a & b, and an operator, evaluate the operation between a & b
@@ -28,7 +32,11 @@ def one(items):
 # two(-5, 2, '/') → -2.5
 
 def two(a, b, operator):
-    pass
+        operators = ['+','-','*','/']
+        for ops in operators:
+            if operator == ops:
+                return eval(f'{a}{operator}{b}')
+
 
 # <QUESTION 3>
 
@@ -65,9 +73,6 @@ def four(a, b):
 
 # <QUESTION 5>
 
-# Given a string, return a string where each letter is the previous letter in the alphabet
-# in comparison to the original string
-
 # For a or A, use z or Z respectively
 
 # Ignore characters that aren't in the alphabet, such as whitespace or numbers
@@ -81,4 +86,20 @@ def four(a, b):
 # five('54321') → '54321'
 
 def five(string):
-    pass
+    abc_2 = list('abcdefghijklmnopqrstuvwxyza')
+    abc_caps = list('ABCDEFGHIJKLMNOPQRSTUVWXYZA')
+    outstring = ''
+   
+    for char in string:
+        if char in abc_2:
+            outstring += abc_2[abc_2.index(char, 1)-1]    
+    
+        elif char in abc_caps:
+            outstring += abc_caps[abc_caps.index(char, 1)-1]
+
+        else:
+            outstring += char
+    return outstring
+                
+                
+
