@@ -69,7 +69,9 @@ def three(num):
 # four(10, 50) → 10
 
 def four(a, b):
-    pass
+    while b:
+        a, b = b, a%b
+    return a
 
 # <QUESTION 5>
 
